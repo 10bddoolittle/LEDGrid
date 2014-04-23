@@ -1,4 +1,4 @@
-from DataStructures import CircularQueue
+from DataStructures.CircularQueue import CircularQueue
 import Adafruit_BBIO.GPIO as GPIO
 
 
@@ -15,10 +15,10 @@ class GPIOModule:
         self.colgpios = colgpios
 
         for row in range(len(rowgpios)):
-            GPIO.setup(rowgpios[row])
+            GPIO.setup(rowgpios[row], GPIO.OUT)
 
         for col in range(len(colgpios)):
-            GPIO.setup(colgpios[col])
+            GPIO.setup(colgpios[col], GPIO.OUT)
 
         return
 
