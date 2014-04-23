@@ -29,6 +29,10 @@ class Display:
         self.gpio_module.activateRow()
         return
 
+    '''
+    run time - time displays
+    update time - flickering time
+    '''
     def run(self, array, run_time, update_time):
         dt = 0
 
