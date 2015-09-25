@@ -5,12 +5,16 @@ class CircularQueue:
 
     # Takes a list and creates a circularqueue object
     def __init__(self,list):
+        self.queue = list
+        self.length = len(self.queue)
         return
 
     # Shift: takes the head of self.queue and shifts it to the tail
-    def Shift(self):
+    def shift(self, length):
+        n = length
+        self.queue = self.queue[1:n] + self.queue[0]
         return
 
     # GetHead: returns the head of self.queue
-    def GetHead(self):
-        return
+    def getHead(self):
+        return self.queue[0]

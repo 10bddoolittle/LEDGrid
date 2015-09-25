@@ -10,12 +10,14 @@ class GPIOModule:
     colgpios = []
 
     def __init__(self,rowgpios,colgpios):
+        self.rowgpios = rowgpios
+        self.colgpios = colgpios
         return
 
     # output a list of the active columns through column GPIOs
-    def OutputColumns(self,active_columns):
+    def outputColumns(self,active_columns):
         return
 
     # output a list of active rows through the row gpios
-    def OutputRows(self,active_rows):
+    def outputRows(self,active_rows):
         return
