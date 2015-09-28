@@ -5,19 +5,37 @@ import Adafruit_BBIO.GPIO as GPIO
 class GPIOModule:
 
     # Use circular queue because row outputs are periodic and predictable
-    rowgpios = CircularQueue()
+    #rowgpios = CircularQueue()
+    
     # plain list because column outputs are dynamic
-    colgpios = []
+    #colgpios = []
 
     def __init__(self,rowgpios,colgpios):
-        self.rowgpios = rowgpios
+        self.rowgpios = CircularQueue(rowgpios)
         self.colgpios = colgpios
+
+        for row in range(len(rowgpios)):
+            GPIO.setup(rowgpios[row])
+
+        for col in range(len(colgpios)):
+            GPIO.setup(colgpios[col])
+
         return
 
     # output a list of the active columns through column GPIOs
+    # active_columns is a list of 0 or 1's
+    # colgpios is a list of gpio ports
     def outputColumns(self,active_columns):
+        for col in range(len(active_columns)):
+            GPIO.output(self.colgpios[col], active_columns[col])
         return
 
     # output a list of active rows through the row gpios
-    def outputRows(self,active_rows):
-        return
+    def activateRow(self):
+        GPIO.output(self.rowgpios.getHead(),1)
+        return 
+
+    def deactivateRow(self):
+        GPIO.output(self.rowgpios.getHead(),0)
+        return 
+

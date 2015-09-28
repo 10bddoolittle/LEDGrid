@@ -5,8 +5,8 @@ class LEDArray:
 
     # circular queue
     # [0,1,2,...,(numrows - 1)]
-    rowindices = CircularQueue
-    array = [[]] # list of lists for now, potentially implement as matrix in future
+    #rowindices = CircularQueue
+    #array = [[]] # list of lists for now, potentially implement as matrix in future
 
     # initialize array with numrows and numcols
     def __init__(self,numrows,numcols):
@@ -15,7 +15,7 @@ class LEDArray:
                 self.array[row][col].append(0)
 
         self.rowindices = CircularQueue(range(0,numrows))
-        
+
         return
 
     # sets self.array as newarray
@@ -23,8 +23,8 @@ class LEDArray:
         self.array = newarray
         return
 
-    # returns the row at index
-    def getRow(self,index):
+    # Gets the list of active columns for the given row index
+    def getActiveColumns(self,index):
         return self.array[index]
 
     # returns the head of rowindices
