@@ -14,11 +14,16 @@ class Display:
         return
 
     def run(self):
+    	# turn off current row
     	self.gpio_module.deactivateRow()
+    	# shifting the circular queues
     	self.gpio_module.rowgpios.shift()
     	self.led_array.rowindices.shift()
+    	# getting the new set of active columns
    		active_cols = self.led_array.getActiveColumns(self.led_array.getRowIndex())
+   		# Outputting Values to the LED Grid Hardware
    		self.gpio_module.outputColumns(active_cols)
+   		# Activate the new row
    		self.gpio_module.activateRow()
     	return
 
