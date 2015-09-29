@@ -5,7 +5,6 @@ class LEDArray:
 
     # circular queue
     # [0,1,2,...,(numrows - 1)]
-    rowindices = CircularQueue
     array = [[]] # list of lists for now, potentially implement as matrix in future
 
     # initialize array with numrows and numcols

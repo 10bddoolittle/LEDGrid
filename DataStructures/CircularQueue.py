@@ -10,9 +10,8 @@ class CircularQueue:
         return
 
     # Shift: takes the head of self.queue and shifts it to the tail
-    def shift(self, length):
-        n = length
-        self.queue = self.queue[1:n] + self.queue[0]
+    def shift(self):
+        self.queue = self.queue[1:self.length] + [self.queue[0]]
         return
 
     # GetHead: returns the head of self.queue
