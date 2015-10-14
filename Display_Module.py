@@ -29,16 +29,16 @@ class Display:
         self.gpio_module.activateRow()
         return
 
-    def run(self, array, run_time):
+    def run(self, array, run_time, update_time):
         dt = 0
 
-        display.led_array.updateArray(array)
+        self.led_array.updateArray(array)
 
         timestart = time.time()
         while dt < run_time:
 
-            display.outputPattern()
-            time.sleep(0.01)
+            self.outputPattern()
+            time.sleep(update_time)
             dt = time.time()-timestart
 
 
@@ -62,10 +62,10 @@ if __name__ == "__main__":
         array_4 = [[0, 0],
                    [0, 1]]
 
-        display.run(array_1, 2 )
-        display.run(array_2, 2 )
-        display.run(array_3, 2 )
-        display.run(array_4, 2 )
+        display.run(array_1, 2, .01 )
+        display.run(array_2, 2 ,.01)
+        display.run(array_3, 2 ,.01)
+        display.run(array_4, 2 ,.01)
 
 
     # while True:
