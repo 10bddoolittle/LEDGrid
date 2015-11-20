@@ -37,10 +37,11 @@ class CircularArray:
             rowids = range(0,self.numrows)
         
         for row in rowids:
-            self.array[row] = [self.array[row][self.numcols]] + self.array[row][0:self.numcols-1]
+
+            self.array[row] = [self.array[row][self.numcols-1]] + self.array[row][0:self.numcols-1]
 
     def shiftUp(self,colids=[]):
-        if colids = []:
+        if colids == []:
             colids = range(0,self.numcols)
 
         temparray = self.array
@@ -56,7 +57,7 @@ class CircularArray:
                 self.array[row][col] = temparray[newrow][col]
 
     def shiftDown(self,colids=[]):
-        if colids = []:
+        if colids == []:
                 colids = range(0,self.numcols)
 
         temparray = self.array
