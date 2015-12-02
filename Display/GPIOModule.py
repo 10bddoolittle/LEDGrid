@@ -28,14 +28,12 @@ class GPIOModule:
     def outputColumns(self,active_columns):
         for col in range(len(active_columns)):
             GPIO.output(self.colgpios[col], active_columns[col])
-        return
 
     # output a list of active rows through the row gpios
     def activateRow(self):
         GPIO.output(self.rowgpios.getHead(),1)
-        return 
 
     def deactivateRow(self):
         GPIO.output(self.rowgpios.getHead(),0)
-        return 
+
 

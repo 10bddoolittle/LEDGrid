@@ -13,7 +13,6 @@ class Display:
         self.numcols = len(colgpios)
         self.led_array = LEDArray(self.numrows, self.numcols)
         self.gpio_module = GPIOModule(rowgpios,colgpios)
-        return
 
     def outputPattern(self):
         # turn off current row
@@ -27,7 +26,6 @@ class Display:
         self.gpio_module.outputColumns(active_cols)
         # Activate the new row
         self.gpio_module.activateRow()
-        return
 
     '''
     run time - time displays

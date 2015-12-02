@@ -18,12 +18,10 @@ class LEDArray:
             self.array.append(arrayrow)
 
         self.rowindices = CircularQueue(range(0,numrows))
-        return
 
     # sets self.array as newarray
     def updateArray(self,newarray):
         self.array = newarray
-        return
 
     # Gets the list of active columns for the given row index
     def getActiveColumns(self,index):
