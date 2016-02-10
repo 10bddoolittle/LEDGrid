@@ -1,5 +1,6 @@
 from DataStructures.CircularQueue import CircularQueue
 import Adafruit_BBIO.GPIO as GPIO
+import time
 
 
 class GPIOModule:
@@ -26,8 +27,8 @@ class GPIOModule:
     # active_columns is a list of 0 or 1's
     # colgpios is a list of gpio ports
     def outputColumns(self,active_columns):
-        for col in range(len(active_columns)):
-            GPIO.output(self.colgpios[col], active_columns[col])
+        map(self.setLED,self.colgpios,active_columns)
+
 
     # output a list of active rows through the row gpios
     def activateRow(self):
@@ -35,5 +36,8 @@ class GPIOModule:
 
     def deactivateRow(self):
         GPIO.output(self.rowgpios.getHead(),0)
+
+    def setLED(self,gpio,value):
+        GPIO.output(gpio,value)
 
 
